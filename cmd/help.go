@@ -8,7 +8,6 @@ import (
 func Help() {
 	fmt.Println("Welcome to gtodo CLI app!")
 	fmt.Println("Usage: gtodo <command> [arguments]")
-	fmt.Println("")
 	fmt.Println("Available commands:")
 	fmt.Println("  init                		Create an empty JSON file to store tasks")
 	fmt.Println("  add <task> <cat>    		Add a new task")
