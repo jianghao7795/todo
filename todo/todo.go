@@ -46,20 +46,6 @@ func (t *Todos) Add(task string, cat string) {
 	*t = append(*t, todo)
 }
 
-// Complete will mark requested task as completed
-// not needed as this functionality is handled by Update() func
-// func (t *Todos) Complete(index int) error {
-// 	ls := *t
-// 	if index <= 0 || index > len(ls) {
-// 		return errors.New("invalid index")
-// 	}
-
-// 	ls[index-1].Done = true
-// 	ls[index-1].CompletedAt = time.Now()
-
-// 	return nil
-// }
-
 // Update will update task related to specific id
 func (t *Todos) Update(id int, task string, cat string, done int) error {
 	ls := *t
@@ -190,7 +176,7 @@ func (t *Todos) Print(status int, cat string) {
 		// if strings.ToLower(todo.Category) == strings.ToLower(cat) || cat == "" {
 		// 	requestedCatTodos = append(requestedCatTodos, todo)
 		// }
-		if strings.EqualFold(todo.Category, cat) { // strings.EqualFold() 比较两个字符串是否相等，不区分大小写
+		if strings.EqualFold(todo.Category, cat) || cat == "" { // strings.EqualFold() 比较两个字符串是否相等，不区分大小写
 			requestedCatTodos = append(requestedCatTodos, todo)
 		}
 	}
@@ -224,7 +210,7 @@ func (t *Todos) Print(status int, cat string) {
 
 	table.Footer = &simpletable.Footer{Cells: []*simpletable.Cell{
 		{Align: simpletable.AlignLeft, Text: ""},
-		{Align: simpletable.AlignLeft, Span: 5, Text: fmt.Sprintf("You have %d pending todos", t.CountPending())},
+		{Align: simpletable.AlignLeft, Span: 5, Text: fmt.Sprintf("You have %d pending todos", t.CountPending(cells))},
 	}}
 
 	table.SetStyle(simpletable.StyleUnicode)
@@ -233,15 +219,15 @@ func (t *Todos) Print(status int, cat string) {
 }
 
 // CountPending() will print out the pending tasks
-func (t *Todos) CountPending() int {
-	total := 0
-	for _, item := range *t {
-		if !item.Done {
-			total++
-		}
-	}
+func (t *Todos) CountPending(cells [][]*simpletable.Cell) int {
+	// total := 0
+	// for _, item := range *t {
+	//	if !item.Done {
+	//		total++
+	//	}
+	//}
 
-	return total
+	return len(cells)
 }
 
 // getIndexByID returns the index from a given item's id

@@ -7,7 +7,8 @@ import (
 	"os"
 	"path/filepath"
 	"strings"
-	"todo/todo"
+
+	"github.com/jianghao7795/todo/todo"
 )
 
 // getJsonFile will grab the .todos.json file located at user home directory
@@ -22,7 +23,7 @@ func GetJsonFile() string {
 
 // getUserApproval will get the user's approval when creating an empty json file
 func GetUserApproval() bool {
-	confirmMessage := "Need to create an empty \".todos.json\" file in your home directory to store your todo items, continue? (y/n): "
+	confirmMessage := "Need to create an empty \".todo.json\" file in your home directory to store your todo items, continue? (y/n): "
 
 	r := bufio.NewReader(os.Stdin)
 	var s string

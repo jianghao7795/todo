@@ -6,7 +6,8 @@ import (
 	"fmt"
 	"log"
 	"os"
-	"todo/todo"
+
+	"github.com/jianghao7795/todo/todo"
 )
 
 func UpdateTask(todos *todo.Todos, args []string) {

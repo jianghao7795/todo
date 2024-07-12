@@ -5,8 +5,8 @@ import (
 	"fmt"
 	"os"
 
-	"todo/cmd"
-	"todo/todo"
+	"github.com/jianghao7795/todo/cmd"
+	"github.com/jianghao7795/todo/todo"
 )
 
 func main() {

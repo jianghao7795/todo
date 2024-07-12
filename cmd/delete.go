@@ -5,7 +5,8 @@ import (
 	"flag"
 	"fmt"
 	"log"
-	"todo/todo"
+
+	"github.com/jianghao7795/todo/todo"
 )
 
 func DeleteTask(todos *todo.Todos, args []string) {
