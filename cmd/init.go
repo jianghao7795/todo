@@ -15,12 +15,12 @@ func Init() {
 		os.Exit(0)
 	}
 
-	homeDir, err := os.UserHomeDir()
+	homeDir, err := os.Getwd()
 	if err != nil {
 		log.Fatal(err)
 	}
 
-	filepath := filepath.Join(homeDir, ".todos.json")
+	filepath := filepath.Join(homeDir, ".todo.json")
 	_, err = os.Stat(filepath)
 	if err != nil {
 		if os.IsNotExist(err) {
@@ -29,11 +29,11 @@ func Init() {
 				log.Fatal(err)
 			}
 			defer file.Close()
-			fmt.Println("Succefully create a \".todos.json\" file in your home directory.")
+			fmt.Println("Succefully create a \".todo.json\" file in your home directory.")
 		} else {
 			log.Fatal("Unknown error occurred.")
 		}
 	} else {
-		fmt.Print(".todos.json file exists in your home directory already.")
+		fmt.Print(".todo.json file exists in your home directory already.")
 	}
 }
