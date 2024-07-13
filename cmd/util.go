@@ -18,7 +18,7 @@ func GetJsonFile() string {
 		log.Fatal(err)
 	}
 
-	return filepath.Join(homeDir, ".todos.json")
+	return filepath.Join(homeDir, ".todo.json")
 }
 
 // getUserApproval will get the user's approval when creating an empty json file
